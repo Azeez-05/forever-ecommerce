@@ -42,11 +42,17 @@ const Collection = () => {
         productsCopy = productsCopy.filter(item => category.includes(item.category))
       }
 
+      if (subCategory.length > 0) {
+        productsCopy = productsCopy.filter(item => subCategory.includes(item.subCategory))
+      }
       setFilterProducts(productsCopy)
    }
+
+   
+
    useEffect(()=>{
     setFilterProducts(products)
-   })
+   },[products])
 
    useEffect(()=>{
       applyFilter()
@@ -54,8 +60,8 @@ const Collection = () => {
 
 
    useEffect(() => {
-    console.log(category)
-   }, [category]);
+    console.log(products.slice(category.length))
+   }, [products]);
 
 
 
@@ -94,7 +100,7 @@ const Collection = () => {
                     <input type="checkbox" className='w-3' value={"Bottomwear"} onChange = {toggleSubCategory}/> Bottomwear
                   </p>
                     <p className='flex gap-2'>
-                    <input type="checkbox" className='w-3' value={"Gown"}  onChange = {toggleSubCategory}/> Gown
+                    <input type="checkbox" className='w-3' value={"Winterwear"}  onChange = {toggleSubCategory}/> Others
                   </p>
               </div>
           </div>
