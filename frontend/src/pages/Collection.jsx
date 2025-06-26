@@ -48,7 +48,18 @@ const Collection = () => {
       setFilterProducts(productsCopy)
    }
 
-   
+   const sortProduct = () =>{
+      let fpCopy = filterProducts.slice();
+
+      switch (sortType) {
+        case "low-high":
+              setFilterProducts(fpCopy.filter)
+          break;
+      
+        default:
+          break;
+      }
+   }
 
    useEffect(()=>{
     setFilterProducts(products)
